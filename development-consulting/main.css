@@ -8,7 +8,13 @@
 #footer {
     background-color: #666;
     width: 100%;
-    height: 160px;
+    height: 100px;
+}
+
+#footer p {
+    text-align: center;
+    padding-top: 45px;
+    color: #ccc;
 }
 
 .submit-button {
@@ -20,3 +26,18 @@
     width: 30%;
     margin: 0 auto;
 }
+
+.text-section {
+    padding-top: 30px;
+}
+
+.text-section h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.complete-message {
+    padding: 100px 0;
+}
+
