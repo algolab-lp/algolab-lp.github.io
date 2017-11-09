@@ -14,12 +14,17 @@ $(function () {
         var word = getCategoryWordFromUrl();
         var sanitizedWord = sanitize.encode(word);
         getCategoryWordSpan().text(sanitizedWord);
+        getTitleObject().text(sanitizedWord);
         getCategoryWordInput().val(sanitizedWord);
     }
 
 
     function hasParameter() {
         return containString(getCurrentUrl(), CATEGORY_WORD_DELIMITER);
+    }
+
+    function getTitleObject(){
+        return $('title');
     }
 
     function getCategoryWordSpan() {
