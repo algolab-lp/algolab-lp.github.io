@@ -2,10 +2,21 @@ $(function () {
     var CATEGORY_WORD_DELIMITER = "?";
 
     function setCategoryWord(){
-        var word =getCategoryWordFromUrl();
-        getCategoryWordSpan().text(word);
-        getCategoryWordInput().val(word);
+        var sanitize = {
+            encode : function (str) {
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            },
+
+            decode : function (str) {
+                return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&');
+            }
+        };
+        var word = getCategoryWordFromUrl();
+        var sanitizedWord = sanitize.encode(word);
+        getCategoryWordSpan().text(sanitizedWord);
+        getCategoryWordInput().val(sanitizedWord);
     }
+
 
     function hasParameter(){
         return containString(getCurrentUrl(), CATEGORY_WORD_DELIMITER);
