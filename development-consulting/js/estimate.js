@@ -1,13 +1,13 @@
 $(function () {
     var CATEGORY_WORD_DELIMITER = "?";
 
-    function setCategoryWord(){
+    function setCategoryWord() {
         var sanitize = {
-            encode : function (str) {
+            encode: function (str) {
                 return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
             },
 
-            decode : function (str) {
+            decode: function (str) {
                 return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&');
             }
         };
@@ -18,13 +18,14 @@ $(function () {
     }
 
 
-    function hasParameter(){
+    function hasParameter() {
         return containString(getCurrentUrl(), CATEGORY_WORD_DELIMITER);
     }
 
     function getCategoryWordSpan() {
         return $('span.category_word');
     }
+
     function getCategoryWordInput() {
         return $('input#category_word');
     }
@@ -37,25 +38,25 @@ $(function () {
         return window.location.href;
     }
 
-    function invalidCategoryWord(words){
+    function invalidCategoryWord(words) {
         return words.length < 1 || words[1].length < 1;
     }
 
-    function getCategoryWordFromUrl(){
+    function getCategoryWordFromUrl() {
         var words = getCurrentUrl().split(CATEGORY_WORD_DELIMITER);
-        if(invalidCategoryWord(words)){
+        if (invalidCategoryWord(words)) {
             return "";
         }
         var word = words[1];
         return decodeURI(word);
     }
 
-    function decode(str){
+    function decode(str) {
         return decodeURIComponent(escape(atob(str)))
     }
 
     function executeMain() {
-        if(!hasParameter()){
+        if (!hasParameter()) {
             return;
         }
         setCategoryWord();
