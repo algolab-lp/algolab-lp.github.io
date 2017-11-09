@@ -44,9 +44,6 @@ $(function () {
     }
 
     function executeMain() {
-        // FIXME: debugging
-//        console.log(encodeURI("Androidアプリ"));
-//        console.log(decode("QW5kcm9pZOOCouODl+ODqg=="));
         if(!hasParameter()){
             return;
         }
